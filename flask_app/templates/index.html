@@ -8,7 +8,7 @@
     <title>Dojo Survey</title>
 </head>
 <body>
-    <form action="/application" method="post" class="my-5 bg-dark bg-gradient p-5 col-4 mx-auto">
+    <form action="/survey/create" method="post" class="my-5 bg-dark bg-gradient p-5 col-4 mx-auto">
         <h1 class="text-warning mb-4" >Dojo Survey</h1>
         <div class="form-group text-white">
             <label for="name">Name:</label>
@@ -70,5 +70,13 @@
 
         <input type="submit" value="Submit" class="btn btn-primary mt-3">
     </form>
+    {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
 </body>
 </html>
